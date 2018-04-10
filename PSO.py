@@ -117,7 +117,7 @@ class PSO():
         fitness = []
         for t in range(self.max_iter):
             print('%s %s %s' % ('第', str(t+1), '次迭代...'))
-            report = 0
+            report = []
             # 权值更新
             self.w = (self.w - self.w_end) * (self.max_iter - t - 1) / self.max_iter + self.w_end
 
@@ -130,14 +130,14 @@ class PSO():
                    if(self.p_fit[i] < self.fit):  # 更新全局最优
                        self.gbest = self.X[i]
                        self.fit = self.p_fit[i]
-                       report = i + 1    # 报告全局最优
-
+               # 一次迭代的所有粒子的fit
+               report.append(temp)
+               
+            index = np.argsort(report)   # 从小到大排序
             # save best image in per iterator
-            if t != 0:
-                if report != 0:
-                    mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/' + class_name[0])       # fix..............................
-                    shutil.copy(self.particle_image[report - 1], 'D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/'
-                                + class_name[0] + '/' + 'iterator_' + str(t+1) + '_particle_' + str(report) + '.png')
+            mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/' + class_name[0])       # fix..............................
+            shutil.copy(self.particle_image[index[0]], 'D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/'
+                          + class_name[0] + '/' + 'iterator_' + str(t+1) + '_particle_' + str(index[0] + 1) + '.png')
 
             for i in range(self.pN):
                 self.V[i] = self.w*self.V[i] + self.c1*self.r1*(self.pbest[i] - self.X[i])\
@@ -148,7 +148,7 @@ class PSO():
                     store_point=self.store_point, X=self.X[i], particle_image_path=[self.particle_image[i]])
 
             fitness.append([report - 1, self.fit])
-            print("%s  %.4f" % ('当前第' + str(report) + '粒子达到全局最优：', self.fit))                # 输出最优值
+            print("%s  %.4f" % ('当前第' + str(index[0] + 1) + '粒子达到全局最优：', self.fit))                # 输出最优值
             print('\n')
 
         return fitness, self.target_current, self.seed_useful, self.particle_useful
