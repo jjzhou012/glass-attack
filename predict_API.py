@@ -5,7 +5,7 @@ from __future__ import print_function
 #----------------------------------------------------
 # MIT License
 #
-# Copyright (c) 2017 Rishi Rai
+# Copyright (c) 2017 Rishi Rai                                    !!! 服务器： 修改两处路径
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -43,7 +43,7 @@ from six.moves import xrange
 
 def predict_api(image_files):
 
-    model = 'D:/Anaconda3/Lib/site-packages/facenet/src/models/20170512-110547/20170512-110547.pb'
+    model = 'D:/Anaconda3/Lib/site-packages/facenet/src/models/20170512-110547/20170512-110547.pb'          # fix..................
     classifier_filename = 'D:/Anaconda3/Lib/site-packages/facenet/src/models/lfw_classifier_cls_test.pkl'
     image_size = 160
     seed = 666
