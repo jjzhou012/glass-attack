@@ -1,20 +1,18 @@
 '''
-单张图像 粒子图像生成    接口      随机像素眼镜+ 平滑眼镜（50%）
+单张图像 粒子图像生成    接口      随机像素眼镜+ 平滑眼镜（50%）                !!!服务器： 修改两处路径
 '''
 #-*- coding:utf-8 _*-
 from Faceplusplus_face_detect_API import faceplusplus_face_detect_api
-from Faceplusplus_face_detect_API_s import faceplusplus_face_detect_api_s
-from contributed.predict_API import predict_api
+# from Faceplusplus_face_detect_API_s import faceplusplus_face_detect_api_s
+# from predict_API import predict_api
 from Dir_make import mk_dir
 import numpy as np
-import random
 import time
 from PIL import Image
-import cv2
 import os
 
 
-def glass_particle_init_api(filepath, label, class_name, particle_num):
+def glass_particle_init_api(filepath, label, class_name, particle_num):  # 输入参数 list
 
     # filepath = ['D:/Anaconda3/Lib/site-packages/facenet/data/lfw/lfw_align_mtcnnpy_160\\Ariel_Sharon\\Ariel_Sharon_0041.png']
     # label = [0]
@@ -81,7 +79,7 @@ def glass_particle_init_api(filepath, label, class_name, particle_num):
         # 保存
         print('---save...')
         # 目录生成
-        mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/glass_particle_image/' + class_name[0])
+        mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/glass_particle_image/' + class_name[0])      # fix........................
         start_index = filepath[0].find(class_name[0] + '_')
         # 路径生成
         glass_particle_path = 'D:/Anaconda3/Lib/site-packages/facenet/data/glass_particle_image/' + class_name[0] + '/' + \
