@@ -83,6 +83,7 @@ class PSO():
         if self.continue_last == False:
             print('新的PSO迭代...初始化...')
             for i in range(self.pN):
+                print('初始化粒子' + str(i+1))
                 for j in range(self.dim):
                     # 完全初始化
                     self.X[i][j] = self.glass_particle_pixel_list[i][j]
@@ -93,9 +94,11 @@ class PSO():
                 if(tmp < self.fit):
                     self.fit = tmp
                     self.gbest = self.X[i]
+            print('初始化完毕' + '\n')
         else:
             print('继续上一次的迭代...初始化...')
             for i in range(self.pN):
+                print('初始化粒子' + str(i + 1))
                 for j in range(self.dim):
                     # 初始化
                     self.X[i][j] = self.continue_X[i][j]
@@ -106,10 +109,11 @@ class PSO():
                 if(tmp < self.fit):
                     self.fit = tmp
                     self.gbest = self.X[i]
+            print('初始化完毕' + '\n')
 
 # ----------------------更新粒子位置----------------------------------
     def iterator(self):
-        print('粒子更新...')
+        print('\n' + '开始粒子更新...')
         fitness = []
         for t in range(self.max_iter):
             print('%s %s %s' % ('第', str(t+1), '次迭代...'))
@@ -118,7 +122,7 @@ class PSO():
             self.w = (self.w - self.w_end) * (self.max_iter - t - 1) / self.max_iter + self.w_end
 
             for i in range(self.pN):         # 更新gbest\pbest
-               print('迭代序列：' + str(t+1) + '--更新粒子' + str(i+1))
+               print('\n' + '迭代序列：' + str(t+1) + '--更新粒子' + str(i+1))
                temp = self.function([self.particle_image[i]], self.seed_list[i])
                if(temp < self.p_fit[i]):      # 更新个体最优
                    self.p_fit[i] = temp
@@ -172,7 +176,7 @@ class PSO():
                 self.seed_useful.append(seed)
                 self.particle_useful.append(particle_image_path[0])
             # 全局更新target
-            # self.target_current = self.target
+            self.target_current = self.target
             print('fit:   ' + str(fit))
 
             return fit
@@ -251,8 +255,8 @@ filepath = ['D:/Anaconda3/Lib/site-packages/facenet/data/lfw/lfw_align_mtcnnpy_1
 label = [0]
 class_name = ['Ariel_Sharon']
 # 粒子数
-particle_num = 4
-max_iter = 3
+particle_num = 50
+max_iter = 100
 
 
 # ----------------------程序执行---输出结果----------------------------------
@@ -292,7 +296,7 @@ print(particle_useful)
 print(seed_useful)
 
 
-while fitness[-1][1] != 10:
+while fitness[-1][1] != 5:
     continue_particle_num = len(particle_useful)
 
     test_continue = PSO(filepath=filepath, label=label, class_name=class_name, target='Colin Powell',
