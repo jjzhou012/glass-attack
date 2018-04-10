@@ -4,7 +4,7 @@
 #-*- coding:utf-8 _*-
 from Faceplusplus_face_detect_API import faceplusplus_face_detect_api
 #from Faceplusplus_face_detect_API_s import faceplusplus_face_detect_api_s
-#from contributed.predict_API import predict_api
+#from predict_API import predict_api                                # fix..............................
 #from Dir_make import mk_dir
 import numpy as np
 #import random
