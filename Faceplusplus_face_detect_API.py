@@ -1,5 +1,5 @@
 '''
-face++ 眼镜定位，  镜框贴图   , 单张图片
+face++ 眼镜定位，  镜框贴图   , 单张图片                                 ！！！服务器： 修改三处路径
 '''
 from __future__ import division
 
@@ -17,7 +17,7 @@ import math
 
 # 初始化
 # 原始镜框信息
-glass_filepath = 'D:/Anaconda3/Lib/site-packages/facenet/glass.png'
+glass_filepath = 'D:/Anaconda3/Lib/site-packages/facenet/glass.png'                 # fix..............................
 # 原始镜框定位点
 # 定位点
 glass_left = {'x': 80, 'y': 43}
@@ -26,15 +26,15 @@ glass_right = {'x': 220, 'y': 43}
 glass_point_distance = glass_right['x'] - glass_left['x']
 
 
-def faceplusplus_face_detect_api(filepath, class_name):
+def faceplusplus_face_detect_api(filepath, class_name):      
 
     # 图片路径
     # filepath = "D:/Anaconda3/Lib/site-packages/facenet/data/test_image/1.png"
 
     # 原图显示
     clean_img = cv2.imread(filepath)
-    cv2.imshow('clean_image', clean_img)
-    cv2.waitKey(1)
+    # cv2.imshow('clean_image', clean_img)
+    # cv2.waitKey(1)
 
 
     # 人眼检测
@@ -46,9 +46,9 @@ def faceplusplus_face_detect_api(filepath, class_name):
     point_img_left_eye = cv2.circle(clean_img, (left_eye_center['x'], left_eye_center['y']), 2, (0, 0, 255), -1)  # circle(图像，圆心，半径，颜色，填充)
     point_img = cv2.circle(point_img_left_eye, (right_eye_center['x'], right_eye_center['y']), 2, (0, 0, 255), -1)
 
-    cv2.imshow('point_image', point_img)
+    # cv2.imshow('point_image', point_img)
     cv2.imwrite('point_image.png', point_img)
-    cv2.waitKey(1)
+    # cv2.waitKey(1)
 
     # 缩放比例计算，新镜框定位点
     new_glass_left, new_glass_right = scale(left_eye_center, right_eye_center)
@@ -61,12 +61,12 @@ def faceplusplus_face_detect_api(filepath, class_name):
 
     # 保存路径生成
 
-    mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/face_glass_image/' + class_name)
+    mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/face_glass_image/' + class_name)            # fix..............................
 
     start_index = filepath.find(class_name + '_')
 
     face_glass_path = 'D:/Anaconda3/Lib/site-packages/facenet/data/face_glass_image/' + class_name + '/' + \
-                      class_name + filepath[start_index: -4] + '_glass.png'
+                       filepath[start_index: -4] + '_glass.png'
     face_glass.save(face_glass_path, 'png')
 
     return store_point, face_glass_path
