@@ -2,12 +2,12 @@
 #-*- coding:utf-8 _*-
 """
  粒子群优化算法
- particle： 25个随机生成的像素图像，     未实现颜色平滑
+ particle： 25个随机生成的像素图像，     未实现颜色平滑                     ！！！ 服务器： 修改三处路径
 
 """
 from glass_particle_init_API import glass_particle_init_api
 from glass_particle_init_API import X_to_particle_image_path
-from contributed.predict_API import predict_api
+from predict_API import predict_api      # fix..............................
 from continue_last_inerator import continue_last_iterator
 from color_smoothing import color_smoothing
 from Dir_make import mk_dir
@@ -28,7 +28,7 @@ class PSO():
         self.c2 = 2
         self.r1 = 0.6
         self.r2 = 0.3
-        self.pN = pN                # 粒子数量
+        self.pN = pN                                        # 粒子数量
         self.orig_filepath = filepath
         self.continue_last = continue_last                  # 是否继续上一次迭代
         self.continue_file = continue_file                  # 继续文件
@@ -65,10 +65,10 @@ class PSO():
         self.dim = len(self.store_point)                    # 搜索维度
         self.max_iter = max_iter                            # 迭代次数
         self.min_bl = min                                   # 是否为最小化适应度函数
-        self.X = np.zeros((self.pN, self.dim, 3))         # 所有粒子的位置和速度
+        self.X = np.zeros((self.pN, self.dim, 3))           # 所有粒子的位置和速度
         print(self.X)
         self.V = np.zeros((self.pN, self.dim, 3))
-        self.pbest = np.zeros((self.pN, self.dim, 3))    # 个体经历的最佳位置和全局最佳位置
+        self.pbest = np.zeros((self.pN, self.dim, 3))       # 个体经历的最佳位置和全局最佳位置
         self.gbest = np.zeros((1, self.dim, 3))
         self.p_fit = np.zeros(self.pN)                      # 每个个体的历史最佳适应值
         self.fit = 50                                       # 全局最佳适应值
@@ -135,7 +135,7 @@ class PSO():
             # save best image in per iterator
             if t != 0:
                 if report != 0:
-                    mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/' + class_name[0])
+                    mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/' + class_name[0])       # fix..............................
                     shutil.copy(self.particle_image[report - 1], 'D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/'
                                 + class_name[0] + '/' + 'iterator_' + str(t+1) + '_particle_' + str(report) + '.png')
 
@@ -251,9 +251,9 @@ class PSO():
 pltarg = ["Figure1",[14,14],[0,100]]
 line = ["b", 3]
 
-filepath = ['D:/Anaconda3/Lib/site-packages/facenet/data/lfw/lfw_align_mtcnnpy_160\\Ariel_Sharon\\Ariel_Sharon_0041.png']
+filepath = ['D:/Anaconda3/Lib/site-packages/facenet/data/lfw/lfw_align_mtcnnpy_160\\Ariel_Sharon\\Ariel_Sharon_0041.png']   # fix..............................
 label = [0]
-class_name = ['Ariel_Sharon']
+class_name = ['Ariel_Sharon']   #  有下划线，注意!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # 粒子数
 particle_num = 50
 max_iter = 100
