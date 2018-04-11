@@ -1,7 +1,8 @@
+#-*- coding:utf-8 _*-
+
 '''
 整个工程
 '''
-#-*- coding:utf-8 _*-
 from classifier_TRAIN_API import mode_train
 from classifier_CLASSIFIER_API import mode_classifier
 from Faceplusplus_face_detect_API_s import faceplusplus_face_detect_api_s
