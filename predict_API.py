@@ -43,8 +43,8 @@ from six.moves import xrange
 
 def predict_api(image_files):
 
-    model = 'D:/Anaconda3/Lib/site-packages/facenet/src/models/20170512-110547/20170512-110547.pb'          # fix..................
-    classifier_filename = 'D:/Anaconda3/Lib/site-packages/facenet/src/models/lfw_classifier_cls_test.pkl'
+    model = '/root/facenet/src/models/20170512-110547/20170512-110547.pb'          # fix..................
+    classifier_filename = '/root/facenet/src/models/lfw_classifier_cls_test.pkl'
     image_size = 160
     seed = 666
     margin = 44
