@@ -1,6 +1,8 @@
+#-*- coding:utf-8 _*-
+
 """An example of how to use your own dataset to train a classifier that recognizes people.
 
-    分类器训练接口
+    分类器训练接口                                             # 两处路径
 """
 # MIT License
 #
