@@ -1,7 +1,7 @@
 #-*- coding:utf-8 _*-
 """An example of how to use your own dataset to train a classifier that recognizes people.
 
-    分类器测试接口
+    分类器测试接口                                  # 两处路径
 """
 # MIT License
 #
@@ -44,7 +44,7 @@ def mode_classifier(data_dir, use_split_dataset, seed):
     # 固定参数
     mode = 'CLASSIFY'
     # data_dir = 'D:/Anaconda3/Lib/site-packages/facenet/data/lfw/lfw_align_mtcnnpy_160'
-    model = 'D:/Anaconda3/Lib/site-packages/facenet/src/models/20170512-110547/20170512-110547.pb'
+    model = 'D:/Anaconda3/Lib/site-packages/facenet/src/models/20170512-110547/20170512-110547.pb'                  #fix.......
     classifier_filename = 'D:/Anaconda3/Lib/site-packages/facenet/src/models/lfw_classifier_cls_test.pkl'
     # use_split_dataset = True
     batch_size = 90
