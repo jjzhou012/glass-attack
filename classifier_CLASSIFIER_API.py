@@ -1,3 +1,4 @@
+#-*- coding:utf-8 _*-
 """An example of how to use your own dataset to train a classifier that recognizes people.
 
     分类器测试接口
