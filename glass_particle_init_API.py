@@ -79,10 +79,10 @@ def glass_particle_init_api(filepath, label, class_name, particle_num):  # 输�
         # 保存
         print('---save...')
         # 目录生成
-        mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/glass_particle_image/' + class_name[0])      # fix........................
+        mk_dir('/root/facenet/data/glass_particle_image/' + class_name[0])      # fix........................
         start_index = filepath[0].find(class_name[0] + '_')
         # 路径生成
-        glass_particle_path = 'D:/Anaconda3/Lib/site-packages/facenet/data/glass_particle_image/' + class_name[0] + '/' + \
+        glass_particle_path = '/root/facenet/data/glass_particle_image/' + class_name[0] + '/' + \
                           filepath[0][start_index: -4] + '_glass_particle_' + str(i) + '.png'
         glass_particle.save(glass_particle_path, 'png')
         # 路径存入列表
