@@ -17,7 +17,7 @@ import math
 
 # 初始化
 # 原始镜框信息
-glass_filepath = 'D:/Anaconda3/Lib/site-packages/facenet/glass.png'                 # fix..............................
+glass_filepath = '/root/facenet/glass.png'                 # fix..............................
 # 原始镜框定位点
 # 定位点
 glass_left = {'x': 80, 'y': 43}
@@ -61,7 +61,7 @@ def faceplusplus_face_detect_api(filepath, class_name):
 
     # 保存路径生成
 
-    mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/face_glass_image/' + class_name)            # fix..............................
+    mk_dir('/root/facenet/data/face_glass_image/' + class_name)            # fix..............................
 
     start_index = filepath.find(class_name + '_')
 
