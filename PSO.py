@@ -135,8 +135,8 @@ class PSO():
                
             index = np.argsort(report)   # 从小到大排序
             # save best image in per iterator
-            mk_dir('D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/' + class_name[0])       # fix..............................
-            shutil.copy(self.particle_image[index[0]], 'D:/Anaconda3/Lib/site-packages/facenet/data/PSO_iterator/'
+            mk_dir('/root/facenet/data/PSO_iterator/' + class_name[0])       # fix..............................
+            shutil.copy(self.particle_image[index[0]], '/root/facenet/data/PSO_iterator/'
                           + class_name[0] + '/' + 'iterator_' + str(t+1) + '_particle_' + str(index[0] + 1) + '.png')
 
             for i in range(self.pN):
@@ -251,7 +251,7 @@ class PSO():
 pltarg = ["Figure1",[14,14],[0,100]]
 line = ["b", 3]
 
-filepath = ['D:/Anaconda3/Lib/site-packages/facenet/data/lfw/lfw_align_mtcnnpy_160\\Ariel_Sharon\\Ariel_Sharon_0041.png']   # fix..............................
+filepath = ['/root/facenet/data/lfw/lfw_align_mtcnnpy_160\\Ariel_Sharon\\Ariel_Sharon_0041.png']   # fix..............................
 label = [0]
 class_name = ['Ariel_Sharon']   #  有下划线，注意!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # 粒子数
